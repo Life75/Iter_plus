@@ -1,6 +1,57 @@
 <template>
-    <div>
-        <nav
+    <div class="shadow-lg">
+        <el-menu
+            :default-active="activeIndex"
+            class="bg-black"
+            mode="horizontal"
+            :ellipsis="false"
+            @select="handleSelect"
+            style="background-color: transparent; border: 0;"
+            active-text-color="purple"
+        >
+            <el-menu-item index="0" style="background-color: transparent; font-size: large;">
+           <Ship style="width: 1em; height: 1em; margin-right: 8px" /> 
+            <p class="">Iter</p>                     
+            </el-menu-item>
+            <div class="flex-grow" />
+            <el-menu-item index="1">Home</el-menu-item>
+            <el-sub-menu index="2">
+                <template #title>Workspace</template>
+                <el-menu-item index="2-1">item one</el-menu-item>
+                <el-menu-item index="2-2">item two</el-menu-item>
+                <el-menu-item index="2-3">item three</el-menu-item>
+                <el-sub-menu index="2-4">
+                    <template #title>item four</template>
+                    <el-menu-item index="2-4-1">item one</el-menu-item>
+                    <el-menu-item index="2-4-2">item two</el-menu-item>
+                    <el-menu-item index="2-4-3">item three</el-menu-item>
+                </el-sub-menu>
+            </el-sub-menu>
+        </el-menu>
+    </div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { ref } from 'vue'
+
+export default defineComponent({
+    name: 'NavBar',
+    setup() {
+        const activeIndex = ref('1')
+        const handleSelect = (key: string, keyPath: string[]) => {
+            console.log(key, keyPath)
+        }
+
+        return {
+            activeIndex,
+            handleSelect,
+        }
+    },
+})
+
+/*
+<nav
             class="shadow-lg rounded-lg  py-2.5 bg-purple-300 bg-transparent bg-opacity-10 backdrop-blur-lg"
         >
             <div
@@ -44,7 +95,6 @@
                                 >Goals</a
                             >
                         </li>
-                        
                     </ul>
                 </div>
                   
@@ -53,18 +103,7 @@
 
             </div>
         </nav>
-    </div>
-</template>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-    name: 'NavBar',
-    setup() {
-        console.log('mounted')
-    },
-})
+*/
 </script>
 
 <style></style>
