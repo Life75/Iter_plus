@@ -1,12 +1,15 @@
 <script lang="ts">
 import { defineComponent } from '@vue/runtime-core'
+import NavBar from './components/NavBar.vue';
 
 export default defineComponent({
     name: 'App',
+    components: {NavBar}
 })
 </script>
 
 <template>
+    <NavBar></NavBar>
     <router-view></router-view>
 </template>
 
