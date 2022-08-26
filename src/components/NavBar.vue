@@ -6,7 +6,7 @@
             mode="horizontal"
             :ellipsis="false"
             @select="handleSelect"
-            style="background-color: transparent; border: 0;"
+            style="background-color: whitesmoke; border: 0;"
             active-text-color="purple"
         >
             <el-menu-item index="0" style="background-color: transparent; font-size: large;">
